@@ -1,0 +1,57 @@
+10/02
+
+Você vai aprender desenvolvimento mobile com Kotlin, focado em Android. Em resumo, espere:
+	• 📱 Criar apps Android do zero
+	• 🧠 Entender a lógica por trás das telas, botões e navegação
+	• 🧩 Trabalhar com activities, fragments e layouts
+	• 💾 Usar banco de dados e APIs
+	• 🚀 Aprender boas práticas e começar a pensar como dev mobile
+Resumindo bem direto: Kotlin é a linguagem oficial do Android e você vai aprender a transformar ideias em aplicativos reais.
+
+
+App Nativo
+É um app feito especificamente para um sistema.
+	• Android → Kotlin / Java
+	• iPhone → Swift
+✅ Mais rápido
+✅ Melhor desempenho
+✅ Acesso total ao celular (câmera, GPS, sensores)
+👉 Exemplo: WhatsApp, Instagram (parte nativa)
+
+
+App Híbrido
+É um único app que roda em vários sistemas.
+	• Um código só
+	• Funciona em Android e iOS
+✅ Mais rápido de desenvolver
+✅ Mais barato
+❌ Pode ser um pouco mais lento que o nativo
+👉 Tecnologias comuns: Ionic, React Native, Flutter
+
+🧠 Resumindo em uma frase:
+	• Nativo = feito sob medida para um sistema
+	• Híbrido = feito uma vez para vários sistemas
+Como você vai aprender Kotlin, o foco é Android nativo 📱🔥
+
+Android Studio Pan 1 (IDE) Ambiente de Desenvolvimento
+PANDA 1 = aprender a criar tela e fazer o app funcionar, sem lógica pesada ainda.
+
+O que precisa para rodar:
+Compilador Kotlin (transforma Kotlin em bytecode)
+Gradle (organiza e executa o processo de build)
+Android SDK (gera o APK/AAB)
+
+Vamos usar versão 5 ou 6 devido a leveza para rodar o aplicativo
+
+Não mexer nas pastas: Manifest, Gradle Scripts 
+
+Conceitos Básicos 
+Activity > sempre uma tela (instancias de uma classe) 
+Intents > Faz comunicação entre as Activity (telas)
+
+Quando uma nova Activity é aberta, ela sobrepõe a anterior 
+Forma uma pilha de navegação
+Botão de voltar, via de regra, desempilha
+
+Resources > Recursos não programáticos usados pelo app 
+Contents > É sempre o que está na tela 
