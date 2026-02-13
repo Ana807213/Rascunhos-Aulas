@@ -1,0 +1,20 @@
+12/02
+
+O n8n é uma ferramenta de automação.
+Explicando bem simples 👇
+Ele serve para ligar sistemas e automatizar tarefas, sem você precisar fazer tudo manualmente.
+📌 Exemplo prático:
+Chegou um e-mail ➜ salvar anexo no Google Drive
+Novo cliente no site ➜ cadastrar no banco de dados
+Venda realizada ➜ enviar mensagem no WhatsApp
+Formulário preenchido ➜ criar tarefa no Trello
+Tudo isso acontece sozinho, depois que você configura.
+
+🧠 Em resumo:
+O n8n é tipo um “conector inteligente” entre sistemas.
+Você cria fluxos (arrastando blocos) e ele executa as ações automaticamente.
+Como você é Tech Lead, você pode usar o n8n para:
+Integrar APIs
+Automatizar rotinas internas
+Criar micro fluxos sem precisar subir um backend inteiro
+Orquestrar webhooks
