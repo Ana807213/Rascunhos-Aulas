@@ -24,7 +24,7 @@ Orquestrar webhooks
 Windows power shell
 Comando : wsl --install
 Resultado: Ubuntu instalado
-Reiniciara maquina 
+Reiniciar a maquina 
 Vai abrir uma tela informando que esta Baixando o Ubuntu
 usuario: ite
 senha: 123
