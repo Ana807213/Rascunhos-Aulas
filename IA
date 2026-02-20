@@ -25,3 +25,40 @@ Windows power shell
 Comando : wsl --install
 Resultado: Ubuntu instalado
 Reiniciara maquina 
+Vai abrir uma tela informando que esta Baixando o Ubuntu
+usuario: ite
+senha: 123
+Comando: sudo apt update
+Senha: 123
+Comando: sudo apt upgrade
+Comando: Y
+Comando: sudo apt install python3-full
+Comando: Y
+Comando: sudo apt install python3-venv
+Comando que pegamos na internet: curl -LsSf https://astral.sh/uv/install.sh | sh
+Comando: cd
+Comando: mkdir ia
+Comando: cd ia 
+Comando: mkdir design-algoritmos
+Comando: cd design-algoritmos
+Comando: python3 -m venv .venv
+Comando: source .venv/bin/activate
+Comando: code .
+VS CODE: criar um arquivo chamado recursive.py
+VS CODE: Instala a extensao de python
+VS CODE: colocar esse codigo no arquivo recursive.py
+"""
+Exemplo de recursividade com fatorial de n.
+
+Fatorial de 4:
+4= 4*3*2*1*1 = 24
+"""
+
+def fatorial(n):
+    if n == 0:
+        return 1
+    return n * fatorial(n-1)
+
+print(fatorial(100))
+Comando: python3 recursive.py
+Resultado será: 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
