@@ -18,3 +18,10 @@ Integrar APIs
 Automatizar rotinas internas
 Criar micro fluxos sem precisar subir um backend inteiro
 Orquestrar webhooks
+
+
+20/02
+Windows power shell
+Comando : wsl --install
+Resultado: Ubuntu instalado
+Reiniciara maquina 
