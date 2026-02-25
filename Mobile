@@ -104,3 +104,8 @@ activitymain.xml
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+View > 
+Layout > 
+Widgets  > Elementos visuais "concretos". Ex: Caixa de texto, rotulo,botão
+ViewGroups > 
+
