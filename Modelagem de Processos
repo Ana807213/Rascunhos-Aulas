@@ -32,4 +32,19 @@ BPMN
 É uma representação grafica feita atraves de icones que simbolizam o fluxo do processo (mapeamento do processo)
 As pessoas memorizam melhor o processo quando mostramos ele de forma visual
 
+24/02
+Diferença entre BPMN e Fluxograma 
+
+Fluxograma > Sequencia de processos de forma grafica 
+BPMN >É um conjunto de fluxogramas, que vai conter uma analise de gargalos e melhorias. Visa com o tempo até mesmo automatizar esse fluxo.
+
+As 5 categorias de elementos da simbologia de fluxograma de processo BPMN
+
+Elemento de Fluxo: Define quando um processo inicia e finaliza
+Raias e Piscinas: Sao os departamentos e as pessoas com seus conjuntos de atividades
+Conectores Sao elementos que precisam estar conectados para que se saiba a sequencia
+Elementos de Dados: Define como os dados serão manipulados 
+Aertefatos: Necessario a documentação para se iniciar o procesoo
+
+https://demo.bpmn.io/new
 
