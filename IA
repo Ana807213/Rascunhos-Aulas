@@ -62,3 +62,119 @@ def fatorial(n):
 print(fatorial(100))
 Comando: python3 recursive.py
 Resultado será: 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+
+Aula 26/02
+VS CODE: Arquivo busca.py
+def busca(lista: list, chave: int):
+    for indice, valor in enumerate(lista):
+        if valor == chave:
+            return indice
+    return -1
+
+
+lista = [3, 4, 1, 6, 14]
+print(busca(lista, 6))
+
+Comando: python3 busca.py
+Resultado: 3
+
+VS CODE: Arquivo binary_search.py
+def binary_search(array, key, start, end):
+    """
+    Busca binária em um array ordenado
+    Retorna o índice do elemento ou -1 se não encontrar
+    """
+
+    while start <= end:
+        # calcular o índice do meio
+        mid = start + (end - start) // 2
+
+        # verificar se o elemento do meio é o procurado
+        if array[mid] == key:
+            return mid
+
+        elif array[mid] < key:
+            # elimina a metade esquerda
+            start = mid + 1
+        else:
+            # elimina a metade direita
+            end = mid - 1
+
+    return -1  # elemento não encontrado
+
+array = [4,6,9,13,14,18,21,24,38]
+key = 38
+result = binary_search (array,key,len(array)-1,0)
+print (result)
+
+Comando: python3 binary_search.py
+Resultado: -1
+
+VS CODE: Arquivo merge_sort.py
+def sort(unsorted: list):
+    
+    """
+    Sort usa paradiga 'Dividir para conquistar'
+
+    Etapas:
+    1. Dividir a lista ao meio
+    2. Resolver recursivamente cada metade
+    3. Combinar (merge) as metades ordenadas
+
+    A recursao continua até que cada metade tenha apenas 1 elemento.
+    Uma lista com 1 elemento ja esta ordenada    
+    """
+    if len(unsorted) <= 1:
+        return unsorted
+
+    #Etapa 1 - dividir 
+    mid = len(unsorted) // 2
+    left_unsorted = unsorted[:mid]
+    right_unsorted = unsorted[mid:]
+
+    #Etapa 2 - Conquista (resolver recursivamente)
+    left_sorted = sort(left_unsorted)
+    right_sorted = sort(right_unsorted)
+
+    #Etapa 2 - Combinar as metadas ja ordenadas 
+    return merge(left_sorted, right_sorted)
+
+
+def merge(left: list, right: list):
+    """
+    Recebe duas listas e devolve uma unica lista ordenada
+    """
+
+    i = 0
+    j = 0
+    merged = []
+
+    # Enquanto ainda houver elementos nas 2 listas 
+    while i < len(left) and j < len(right):
+        # Comparar os elementos atuais 
+        if left[i] < right[j]:
+            merged.append(left[i])
+            i += 1
+        else:
+            merged.append(right[j])
+            j += 1    #avança na lista
+
+    #se sobrar elementos na esquerda
+    while i < len(left):
+        merged.append(left[i])
+        i += 1
+
+    # se sobrar elementos na direita
+    while j < len(right):
+        merged.append(right[j])
+        j += 1
+
+    return merged
+
+
+unsorted = [10, 1, 20, 3, 5, 2, 18, 0]
+print(sort(unsorted))
+
+Comando: python3 merge_sort.py
+Resultado: [0,1,2,3,5,10,18,20]
+
