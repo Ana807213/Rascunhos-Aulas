@@ -109,3 +109,202 @@ Layout >
 Widgets  > Elementos visuais "concretos". Ex: Caixa de texto, rotulo,botão
 ViewGroups > 
 
+Aula 24/02
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minha primeira tela de login"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite seu login"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Digite a sua senha"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="+"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="-"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="/"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="*"/>
+
+
+</LinearLayout>
+
+<!--match_parent: "pega" o layout pai -->
+    <!--wrap_content: somente o necessario para aparecer pega um tanto de pixel
+    e um tanto de espaço que caiba o que vou por dentro-->
+
+Aula 26/02
+ARQUIVO: activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minha primeira tela de login"/>
+
+    <EditText
+        android:id="@+id/primeirovalor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Digite o primeiro termo"/>
+
+    <EditText
+        android:id="@+id/segundovalor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Digite o segundo termo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+    <Button
+        android:id = "@+id/botaoSoma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="+"
+        android:onClick="BotaoSoma"/>
+
+    <Button
+        android:id = "@+id/botaoSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="-"
+        android:onClick="BotaoSub"/>
+
+
+    <Button
+        android:id = "@+id/botaoDiv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="/"
+        android:onClick="BotaoDiv"/>
+
+    <Button
+        android:id = "@+id/botaoMul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="*"
+        android:onClick="BotaoMul"/>
+
+
+</LinearLayout>
+
+</LinearLayout>
+
+<!--match_parent: "pega" o layout pai -->
+    <!--wrap_content: somente o necessario para aparecer pega um tanto de pixel
+    e um tanto de espaço que caiba o que vou por dentro-->
+
+ARQUIVO:MainActivity.kt
+package com.example.primeiroapp
+
+import android.os.Bundle
+import android.view.View
+import android.widget.EditText
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class MainActivity : AppCompatActivity() {
+    lateinit var primeirovalor : EditText
+    lateinit var segundovalor : EditText
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        Toast.makeText(this, "Bem vindo a sua primeira calculadora ", Toast.LENGTH_LONG).show()
+        //                       onde         / mensagem /                     duraçao
+        primeirovalor = findViewById(R.id.primeirovalor)
+        segundovalor = findViewById(R.id.segundovalor)
+    }
+    fun BotaoSoma(view: View){
+        var valorum = primeirovalor.text.toString().toInt()
+        var valordois =  segundovalor.text.toString().toInt()
+        var soma = valorum + valordois
+        Toast.makeText(this, "O resultado da soma é: $soma ", Toast.LENGTH_LONG).show()
+
+    }
+    fun BotaoSub(view: View){
+        var valorum = primeirovalor.text.toString().toInt()
+        var valordois =  segundovalor.text.toString().toInt()
+        var sub = valorum - valordois
+        Toast.makeText(this, "O resultado da subtracao é: $sub ", Toast.LENGTH_LONG).show()
+
+    }
+    fun BotaoDiv(view: View){
+        var valorum = primeirovalor.text.toString().toInt()
+        var valordois =  segundovalor.text.toString().toInt()
+        var div = valorum / valordois
+        Toast.makeText(this, "O resultado da divisao é: $div ", Toast.LENGTH_LONG).show()
+
+    }
+
+    fun BotaoMul(view: View){
+        var valorum = primeirovalor.text.toString().toInt()
+        var valordois =  segundovalor.text.toString().toInt()
+        var mul = valorum * valordois
+        Toast.makeText(this, "O resultado da multiplicacao é: $mul ", Toast.LENGTH_LONG).show()
+
+    }
+    //aqui dentro
+}
