@@ -178,3 +178,104 @@ print(sort(unsorted))
 Comando: python3 merge_sort.py
 Resultado: [0,1,2,3,5,10,18,20]
 
+27/02
+Euclidiana 
+Percurso
+Linear (euclidiana)
+
+Comando: mkdir buscas
+Comando: cd buscas
+Comando: python3 -m venv .venv
+Comando: code .
+
+VS CODE: Arquivo gredy.py
+# Grafo representado como dicionário
+# Cada cidade aponta para vizinhos e seus custos
+reais
+
+import heapq
+
+romania_map = {
+"Arad": {"Zerind": 75, "Timisoara": 118,
+"Sibiu": 140},
+"Zerind": {"Arad": 75, "Oradea": 71},
+"Oradea": {"Zerind": 71, "Sibiu": 151},
+"Timisoara": {"Arad": 118, "Lugoj": 111},
+"Lugoj": {"Timisoara": 111, "Mehadia": 70},
+"Mehadia": {"Lugoj": 70, "Drobeta": 75},
+"Drobeta": {"Mehadia": 75, "Craiova": 120},
+"Craiova": {"Drobeta": 120, "Rimnicu Vilcea":146, "Pitesti": 138},
+"Sibiu": {"Arad": 140, "Oradea": 151,
+"Fagaras": 99, "Rimnicu Vilcea": 80},
+"Pitesti": {"Rimciu Vilcea":97, "Craiova":138,"Bucharest": 101},
+"Bucharest": {"Fagaras":211, "Pitesti":101}
+
+}
+
+heuristic = {"Arad": 366,
+"Zerind": 374,
+"Oradea": 380,
+"Timisoara": 329,
+"Lugoj": 244,
+"Mehadia": 241,
+"Drobeta": 242,
+"Craiova": 160,
+"Sibiu": 253,
+"Rimnicu Vilcea":193,
+"Fagaras": 176,
+"Pitesti":100,
+"Bucharest": 0
+}
+
+def greedy_best_first_search(graph, heuristic, start, goal):
+    """
+     grap - o mapa
+    heuristic - a heuristica
+    start -de onde esta partindo
+    goal - onde quer chegar
+    """
+    #separar o que foi explorado do nao explorado
+    frontier = []
+    #inserindo nó inicial (Arad)
+    #h(n) = h(n)
+    heapq.heappush (frontier(heuristic[start],start))
+
+    """
+    Sibiu <--- Arad
+    """
+    came_from = {}
+
+    """
+    Conjunto de nós ja visitados(expandidos)
+    Evita ciclo infinito;
+    Se torna uma busca rapida - Big O (1)
+    """
+        visited = set()
+
+    """
+    Enquanto houver nós para explorar, faça recursivamente.
+    Se a fronteira esvaziar -> nao existe solução.
+    """
+    
+    while frontier:
+        """
+        Remove o nó com menor heuristica
+        '_' ignora o valor da heuristica
+        'current' = recebe a cidade
+        """
+        _, current = heap.heappop(frontier)
+        print (f"Nó Expandido: {current}")
+
+        if current == goal:
+            return reconstruct_path (came_from, start, goal)
+
+def reconstruct_path()
+    ...
+path = greedy_best_first_search(
+    romania_map,
+    heuristic,
+    start ="Arad",
+    goal = "Bucharest"
+)
+
+print (path)
