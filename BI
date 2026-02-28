@@ -1,0 +1,20 @@
+27/02
+Formula que o professor ensinou
+=CONT.SES('202601_RecebimentosRecursosPorFavorecido.csv'!$C:$C;"SP";'202601_RecebimentosRecursosPorFavorecido.csv'!$F:$F;"Ministério da saúde";'202601_RecebimentosRecursosPorFavorecido.csv'!$H:$H;"Ministério da Saúde - Unidades com vínculo direto")
+
+
+Exercicios para entregar
+
+1. Retorne em uma formula todas as linhas contendo SP na sigla Municipio 
+
+=CONT.SE('202601_RecebimentosRecursosPorFavorecido.csv'!$C:$C;"SP")
+Resultado: 31484 (CORRETO)
+
+2. Retorne em uma formula todas as linhas contendo SP na sigla do Municipio ,contendo o nome da universidade de alfenas
+
+=CONT.SES('202601_RecebimentosRecursosPorFavorecido.csv'!$C:$C;"SP";'202601_RecebimentosRecursosPorFavorecido.csv'!$J:$J;"UNIVERSIDADE FEDERAL DE ALFENAS";'202601_RecebimentosRecursosPorFavorecido.csv'!$L:$L;"<20000")
+Resultado: 144 (CORRETO)
+
+3. Retorne em uma formula todas as linhas contendo SP na sigla do Municipio ,contendo o nome da universidade de alfenas que tenha transferencia <20000
+=CONT.SES('202601_RecebimentosRecursosPorFavorecido.csv'!$C:$C;"SP";'202601_RecebimentosRecursosPorFavorecido.csv'!$J:$J;"UNIVERSIDADE FEDERAL DE ALFENAS";'202601_RecebimentosRecursosPorFavorecido.csv'!$L:$L;"<20000")
+Resultado: 137 (correto)
