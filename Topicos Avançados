@@ -1,0 +1,16 @@
+vi muslist.sh > Abre o arquivo muslist.sh no editor vi (editor de texto no terminal).
+Se o arquivo não existir, ele é criado ao salvar.
+
+chmod 777 > Muda as permissões do arquivo muslist.sh.
+7 = leitura (4) + escrita (2) + execução (1)
+777 = dono, grupo e outros podem tudo (rwxrwxrwx)
+⚠️ Não é recomendado usar 777 em tudo (é inseguro).
+
+cat muslist.db > Mostra o conteúdo do arquivo muslist.db.
+
+./muslist.sh Artista > Executou o script muslist.sh passando Artista como argumento.
+
+grep -v Artista6 musicas.bd > grep procura texto.
+
+cut -d: -f1 > usa : como separador
+➡ mostra apenas o primeiro campo de cada linha
