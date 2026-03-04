@@ -48,3 +48,10 @@ Aertefatos: Necessario a documentação para se iniciar o procesoo
 
 https://demo.bpmn.io/new
 
+03/03
+Exercicios:
+1.Crie um BPMN para visualização de um atendimento hospitalar emergencial, onde o usuario pode ser atendido por convenios medicos. .
+
+2.Uma empresa de telecomunicaçoes precisa identificar os chamados tecnicos para resolução de problemas dos usuarios. Faça o BPMN para 
+que essa empresa crie uma estrutura onde só no final o atendimento , caso nao se resolva pelo atendimento de chat ou telefonema,
+opte por abrir uma visita tecnica
