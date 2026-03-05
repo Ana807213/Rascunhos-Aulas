@@ -55,3 +55,13 @@ Exercicios:
 2.Uma empresa de telecomunicaçoes precisa identificar os chamados tecnicos para resolução de problemas dos usuarios. Faça o BPMN para 
 que essa empresa crie uma estrutura onde só no final o atendimento , caso nao se resolva pelo atendimento de chat ou telefonema,
 opte por abrir uma visita tecnica
+
+04/03
+3. Sistema de Aprovação de Emprestimo bancario. O banco nao olha apenas o saldo, mas uma combinação de fatores que dependem uns dos outros . 
+O desafio: Sistema de Credito Inteligente
+Escreva um BPMN em tres informaçoes iniciais:
+
+As regras de decisao sao:
+Se a renda for maior ou igual a 5.000,00> o banco verifica o nome. Se o nome estiver limpo, o emprestimo é Aprovado
+Se o nome estiver sujo, o banco verifica imovel.Se possuir imovel, o emprestimo é aprovado com garantia. Caso contrario, é reprovado. 
+Se a renda for menor a 5.000,00 > O banco só aprova se o nome estiver limpo e se possuir imovel, caso falte um desses, o credito é negado.
