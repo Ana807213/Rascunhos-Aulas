@@ -65,3 +65,28 @@ As regras de decisao sao:
 Se a renda for maior ou igual a 5.000,00> o banco verifica o nome. Se o nome estiver limpo, o emprestimo é Aprovado
 Se o nome estiver sujo, o banco verifica imovel.Se possuir imovel, o emprestimo é aprovado com garantia. Caso contrario, é reprovado. 
 Se a renda for menor a 5.000,00 > O banco só aprova se o nome estiver limpo e se possuir imovel, caso falte um desses, o credito é negado.
+
+10/03
+Aprovação De Férias 
+Objetivo: Garantir que as solicitações de ferias dos funcionarios sejam adequadamente avaliadas e aprovadas. 
+1. Solicitação de ferias
+ O funcionario preenche um formulario de solicitação de ferias, especificando as datas desejadas 
+2. Analise de disponibilidade 
+ O sistema verifica a disponibilidade de dias de ferias do funcionario e a capacidade da equipe para cobrir sua ausencia 
+3. Aprovação do gestor imediato
+ O gestor imediato do funcionario recebe a solicitação de ferias e a aprova se estiver dentro da politica da empresa e nao 
+houver conflitos de agenda 
+4.Aprovação do RH 
+ O departamento de RH revisa a solicitação para garantir conformidade com as politicas da empresa e leis trabalhistas
+5.Comunicação da Aprovação
+ O funcionario é notificado sobre a aprovação de suas ferias e quaisquer instruçoes adicionais, como procedimentos
+para cobertura de sua ausencia
+6.Registro de ferias 
+ As datas das ferias sao registradas no sistema de gestao de recursos humanos para controle de frequencia e outros fins 
+administrativas
+7.Acompanhamento
+ Durante o periodo de ferias, o sistema pode enviar lembretes automaticos para o gestor e o RH garantir que tudo ocorra
+conforme planejado
+8.Feedback Pós ferias
+ Após o retorno do funcionario, pode-se solicitar feedback sobre o processo de solicitação de ferias para identificar 
+areas de melhoria 
