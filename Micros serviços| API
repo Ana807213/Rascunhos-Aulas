@@ -1,0 +1,63 @@
+09/03
+
+VS CODE : 
+//console.log ("Ola mundo")
+//node index.js
+
+//npm install express
+
+// importar o express
+
+const express = require ('express')
+var app = express ()
+
+app.use (express.json())
+
+app.listen( 8080, function () {
+    console.log ("Servidor Online")
+})
+
+// O parametro X é a porta que vamos escutar (ex:8080), vamos programar
+//dentro da function
+//javascript usado é  JS6 onde nao precisa por 127
+
+app.get ('/api', function (req, res){
+    console.log ("Rota API")
+
+//nesse ponto deu timeout pois o serviço ficou esperando uma resposta do servidor
+// precisamos acrescentar na função request e response e depois colocar um return
+    return res.send ("<marquee>Coringão é o melhor</marquee>")
+})
+
+app.post ("/api", (req , res) => {
+    console.log("Dados recebidos:")
+    console.log (req.body)
+
+    return res.send ("chegou")
+})
+
+app.get ('/', function (req, res){
+    console.log ("Principal");
+    var json= {
+        nome: "Ana",
+        idade: "15"
+    }
+    return res.send (json)
+
+})
+
+Comando para subir servidor no VS CODE : node index.js
+
+INSOMINIA
+METODO GET
+127.0.0.1:8080
+
+METODO POST
+127.0.0.1:8080/api
+
+Body:{
+	"usuario": "teste",
+	"senha": "1234"
+}
+
+
