@@ -102,4 +102,130 @@ return res.send(dados)
 app.listen( PORTA, ()=>{
 console.log("Servidor principal")
 })
+Criando a aplicaçao
+npm init -->> iniciar projeto
 
+Instalando as dependencias
+npm install express ---> sempre que quiser instalar uma biblioteca
+
+no index.js
+const express = require('express')
+var app = express()
+var porta = 3001
+
+
+
+node index.js -->> inicia a aplicação
+ctrl c (para o serviço)
+
+-> se eu alterar algo, devo parar o serviço (ctrl c) e dar node index.js novamente
+
+
+app.get("/", function() {
+console.log("Chegou na principal")
+})
+->> se eu colocar o 127.0.0.1/3001  no browser, ele vai dar um erro cannot get
+pq ele esta esperando uma resposta...
+como responder)
+
+app.get("/", function(req,res) {
+console.log("Chegou na principal"
+return res.send("<h2>Ola mundo</h2>)
+})
+
+VOU NO INSMONIA
+COLOCO A PORTA 3001
+E DOU SEND
+
+O PIOR erro> 500
+se der 200 é deu certo
+
+//AGORA, EU FALO QUE MINHA REQUISICAO ACEITA POST
+app.post("/api", function(req,res){
+var dados = {
+aluno: "010622025",
+nome: "Joacleocion lpes"
+}
+return res.send(dados)
+})
+->  CRIO OBJETO JASON CM ATRIBUTOS *NOME E RA*, ELE VAI DEVOLVER POR POST
+   
+
+vou la em cima e adiciono> app.use(express.jason())
+})
+
+-> DOU NO TERMINAL UM NODE INDEX.JS E VOU NO INSOMINIA NO METODO GET E DEVOLVO O RESULTADO
+
+-> POSSO FORÇAR UM ERRO 400?(ERRO DE USUARIO OU SENHA FALTANDO)
+app.post("/api", function(req,res){
+var dados = {
+aluno: "010622025",
+nome: "Joacleocion lpes"
+}
+return res.status(400).send(dados)
+})
+-> Em baixo do app.get..
+
+app.post("/receba", function(req,res){
+return res.send({message:"recebido"})
+})
+
+- NO TERMINAL, PARE O SERVIÇO CTRL+C E DA UM NODE INDEX.JS PARA CHAMAR O RECEBA
+
+vai no insomnia, cria uma nova aba no metodo get, coloque: 127.0.0.1:3001/receba
+
+nesse novo METODO eu vou clocar em body
+e trocar pra JSON
+ESCREVO DENTRO D JSON:
+{
+	"usuario": "teste",
+	"senha": "123"
+}
+
+dou um SEND 
+vai devolver recebido.
+
+para o serviço CLS 
+
+e vou no vs code:
+ADICIONO
+app.post("/receba", function(req,res){
+   console.log(req.body)   <----ISSO
+return res.send({message:"recebido"})
+})
+
+ISSO vai retornar no terminal (o usuario e senha)
+
+MUDO NOVAMENTE NO VS:
+app.post("/receba", function(req,res){
+   console.log(req.body)
+
+   var usuario = req.body.usuario
+   var senha = req.body.senha
+return res.send({message:"usuario"})
+})
+
+PQ? pois esta dentro do json.... defini que os atributos NO JASON tem senha e usuario.
+
+ADICIONO BASE>
+app.post("/receba", function(req,res){
+   console.log(req.body)
+
+   var usuario = req.body.usuario
+   var senha = req.body.senha
+   var base = req.body.base
+   
+   if(base== undefined)
+      return res.status(400).send({ message:"Base é obrigatório"})
+   
+return res.send({message:"usuario"})
+})
+
+- SE O USUARIO N EXISTIR ELE RETRNA: UNDEFINED COM ERRO 400 BASE É OBRIGATÓRIO
+
+DOU UM NODE INDEX.JS
+
+ESCREVO NO JSON:
+
+"base": "HML"
+}
