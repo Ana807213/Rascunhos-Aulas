@@ -61,3 +61,45 @@ Body:{
 }
 
 
+Aula 16/03
+
+//importar o express
+const express = require('express')
+var app = express()
+var PORTA = 3001
+app.use(express.jason())
+
+
+
+app.get("/", function(req,res) {
+ console.log("Chegou na principal")
+ return res.send("<h2>Ola mundo</h2>")
+
+})
+
+app.post("/receba", function(req,res){
+   console.log(req.body)
+
+   var usuario = req.body.usuario
+   var senha = req.body.senha
+   var base = req.body.base
+   
+   if(base== undefined)
+      return res.status(400).send({ message:"Base é obrigatório"})
+   
+return res.send({message:"usuario"})
+})
+
+
+app.post("/api", function(req,res){
+var dados = {
+aluno: "010622025",
+nome: "Joacleocion lpes"
+}
+return res.send(dados)
+})
+
+app.listen( PORTA, ()=>{
+console.log("Servidor principal")
+})
+
