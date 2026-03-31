@@ -229,3 +229,59 @@ ESCREVO NO JSON:
 
 "base": "HML"
 }
+
+30/03
+VS CODE
+Terminal: npm -g install nodemon
+		  npm init
+		  npm install express
+Codigo do index.js
+
+const express = require("express");
+
+var data = require('./src/data.json');
+
+console.log(data);
+
+var app = express();
+app.use(express.json());
+
+var porta = 3001;
+
+// Listar todos
+app.get("/api/veiculos", (req, res) => {
+    return res.send(data);
+});
+
+// Buscar por modelo
+app.get("/api/buscar/:modelo", (req, res) => {
+    var { modelo } = req.params;
+
+    var retorno = data.filter(linha => linha.modelo == modelo);
+
+    return res.send(retorno);
+});
+
+// Buscar por placa
+app.get("/api/buscar/:placa", (req, res) => {
+    var { placa } = req.params;
+
+    var retorno = data.filter(linha => linha.placa == placa);
+
+    return res.send(retorno);
+});
+app.post("/api/veiculos", (req,res) => {
+    var {marca, modelo, ano, placa,cor} = req.body
+
+    if (marca == undefined)
+        return res.status(400).send({ erro: "O campo marca é obrigatori"})
+    return res.send ("OK")
+})
+
+app.listen(porta, () => {
+    console.log("Servidor online");
+});
+
+Insomnia
+Rotas GET : 127.0.0.1:3001/api/buscar/Corolla
+Rotas POST : 127.0.0.1:3001/api/veiculos
