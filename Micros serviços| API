@@ -285,3 +285,159 @@ app.listen(porta, () => {
 Insomnia
 Rotas GET : 127.0.0.1:3001/api/buscar/Corolla
 Rotas POST : 127.0.0.1:3001/api/veiculos
+________________________________
+06/04
+
+criei uma pasta routes
+criei arquivo usuario.js
+
+dentro> 
+const express = require('express') -> importo express
+const route = express.Router() -> falo q o express vai usar uma rota
+
+var usuarioController = require('../controllers/usuario') // PQ .. ANTES DE /? pois estou dentro da pasta routes, quando dou ../ eu volto uma pasta para tras
+
+route.get('/registrar', (req,res) => {
+    return res.send({msg: "Usuario criado com sucesso"})
+})
+
+
+module.exports = route; -> TODO FINAL DE ARQUIVO ROUTE FINALIZA COM ISSO.
+
+
+
+
+
+
+
+MINHA INDEX:
+ const express = require ('express')
+var app = express()
+
+app.use(express.json())
+
+app.use('/usuario', require ('./routes/usuario'))
+app.use('/produto', require ('./routes/produto')) // usamos o ./ quando formos usar uma biblioteca NOSSA - ESTOU NA RAIZ DO MEU PROJETO, E NA RAIZ DO MEU PROJETO TENHO UMA PASTA QUE CHAMA ROUTES E DENTRO DELA USUARIO/PRODUT
+
+app.listen( 3000, () =>{
+    console.log("Servidor on")
+})
+
+
+
+
+PRODUTO.JS
+const express = require('express')
+const route = express.Router()
+
+route.get('/lista', (req,res) => {
+    return res.send({msg: "Produto criado com sucesso"})
+})
+
+module.exports = route;
+
+
+
+---> CRIO A PASTA CONTROLLER
+CRIO ARQUIVO : USUARIO.JS
+NESSE NAO IMPORTO EXPRESS
+- o () é aquela função (req,res)
+exports.registrar = () => {   // o nome registrar me leva a rota registrar, vou identificar o que quero registrar e cair aqui, no controle
+ return res.send({msg: "Usuario criado com sucesso"})
+
+}
+
+VOU EM USUARIO.JS 
+EM 
+route.get('/registrar', (req,res) => {
+    return res.send({msg: "Usuario criado com sucesso"})
+})
+APAGO TUDO E FICA 
+route.get('/registrar', usuarioController.registrar)
+
+EM usuario.js controller fica> 
+
+
+exports.registrar = (req,res) => {
+     return res.send({msg: "Usuario criado com sucesso"})
+
+}
+exports.index = (req,res) => {
+     return res.send({msg: "Usuario criado com sucesso"})
+
+}
+exports.consultar = (req,res) => {
+     return res.send({msg: "Usuario criado com sucesso"})
+
+}
+
+
+crio em ROUTES CEP.JS
+
+const express = require('express')
+var route = express.Router()
+
+route.get('/:CEP',(req,res) => {
+    var { cep } = req.params
+    return res.send( cep )
+    
+})
+
+
+module.exports = route
+
+
+VOU NA MINHA INDEX E COLOCO
+app.use('/cep', require ('./routes/cep'))
+
+CRIO NO CONTROLLERS CEP.JS
+
+exports.buscarCep = (req,res) => {
+    var { cep } = req.params
+    return res.send( cep )
+
+}
+
+
+NO CEP.JS - ROUTES - ATUALIZO
+const express = require('express')
+var route = express.Router()
+
+var cepController = require('../controllers/cep')
+
+route.get('/:cep', cepController.buscarCep)
+
+
+
+module.exports = route
+
+_______________
+vou no terminal e coloc 
+npm install axios
+
+VOLTO EM CEP.JS CONTROLLERS - com axios vou SOLICITAR UMA REQUISIÇÃO
+
+var axios = require("axios")
+
+exports.buscarCep = async (req,res) => {
+    var { cep } = req.params
+
+    var url = `https://viacep.com.br/ws/${cep}/json/`
+
+    var endereco = await axios.get(url)
+                   .then( retorno =>{
+                    console.log(retorno.data)
+                    return res.send(retorno.data.logradouro)
+                   })
+
+    return res.send( cep )
+
+}
+// async = assincrono
+//await = se tenho async, tenho wait para esperar a requisição
+se dou no navegador: 
+http://127.0.0.1:3000/cep/17021885
+
+ele retorna o cep
+
+e no VS ELE RETORNA>
