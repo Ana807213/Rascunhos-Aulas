@@ -308,3 +308,21 @@ class MainActivity : AppCompatActivity() {
     }
     //aqui dentro
 }
+//no main activity , criou um linear, com um botao. o botao tem um OnClick  android:onClick="AbrirProva
+//fui no mainactivity.kt crio um fun fun AbrirProva(view: View) {
+//         var intent = Intent(this, Prova()::class.java) -> esse PROVA eu coloco DEPOIS DE CRIAR A TELA PROVA
+//         startActivity(intent)
+//     }
+//CRIEI uma tela que sera a tela que vai abrir quando clicar no abrirprova, criei um prova. no prova puis
+//um id Prova.
+//no prova.kt  mudei na linha ViewCompat o id que era main, prova.
+//texto posso manter um padrao> wrap e wrap
+// no prova activity criei um texto,
+
+//COLOCAR BANNERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+//nova imagem - type> TV BANNERS
+//em text apagar tudo que tem dentro. deixar nada
+//ajustar conteudo como desejo
+//colocar no mipmap
+
+//TELA DE CADASTRO;
