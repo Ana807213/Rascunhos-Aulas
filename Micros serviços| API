@@ -466,3 +466,89 @@ Body: {
 	"ra" : "01062406",
 	"nome": "Ana Maria"
 }
+
+
+CODIGO INDEX 
+const express = require("express")
+var app = express()
+
+app.use(express.json())
+
+const TabelaAlunos = require("./models/alunos")
+
+app.get("/api/alunos", async (req, res) => {
+    var dados = await TabelaAlunos.find()
+    return res.send(dados)
+})
+
+app.post("/api/alunos", async (req, res) => {
+    try {
+        var dados = await TabelaAlunos.insertMany(req.body)
+        return res.send(dados)
+
+    } catch (e) {
+        return res.send("erro")
+    }
+})
+
+app.put("/api/alunos/:id", async (req, res) => {
+
+    try {
+
+        var id = req.params.id
+        var dados = req.body
+
+        if (dados.nome == "" || dados.nome == undefined) {
+
+            return res.status(400).send({
+                error: "Bad Request",
+                message: "Nome é obrigatório"
+            })
+        }
+
+        var data = await TabelaAlunos.findByIdAndUpdate(
+            id,
+            dados,
+            { new: true }
+        )
+
+        return res.send({
+            message: "Aluno alterado com sucesso",
+            id: id,
+            data
+        })
+
+    } catch (err) {
+
+        return res.status(400).send({
+            error: err.message
+        })
+    }
+})
+
+app.delete("/api/alunos/:id", async (req, res) => {
+
+    try {
+
+        var id = req.params.id
+
+        await TabelaAlunos.findByIdAndDelete(id)
+
+        return res.status(200).json({
+            message: "Aluno removido com sucesso"
+        })
+
+    } catch (err) {
+
+        console.log("ALUNOS/DELETE: " + err.message)
+
+        return res.status(400).send({
+            error: "Bad Request",
+            message: err.message
+        })
+    }
+})
+
+app.listen(3000, () => {
+    console.log("Servidor online")
+})
