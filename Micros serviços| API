@@ -441,3 +441,28 @@ http://127.0.0.1:3000/cep/17021885
 ele retorna o cep
 
 e no VS ELE RETORNA>
+
+
+11/05
+GET URL : localhost:3000/api/alunos
+POST URL : http://localhost:3000/api/alunos
+Body: {
+	"ra" : "010624061",
+	"nome": "Escobar",
+	"data_nasc": "1996-04-07",
+	"cidade_nasc": 77,
+	"documentos": [
+		{
+			"tipo": "CPF",
+			"numero": "447.235.998-78",
+			"_id": "684c5a9b4b5f3f0012a8d123"
+		}
+	],
+	"_v":0
+}
+
+PUT URL: http://127.0.0.1:3000/api/alunos/6a0260ef932b864b08e4eb5e
+Body: {
+	"ra" : "01062406",
+	"nome": "Ana Maria"
+}
