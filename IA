@@ -582,3 +582,56 @@ print(response.choices[0].message.content)
 ARQUIVO .ENV
 GROQ_API_KEY = 
 
+________________
+Aula 15/05 - 
+
+mkdir agents
+cd agents/
+uv init
+ls -lah
+uv venv
+source .venv/bin/activate
+uv add
+uv add python-dotenv
+uv add groq
+
+uv add tiktoken
+touch ex.py
+code .
+
+NO VS CODE QUE ABRIU ARQUIVO EX1.PY
+
+from groq import Groq
+from dotenv import load_dotenv
+import os
+
+# Carrega variáveis do .env
+load_dotenv()
+
+# Cria cliente Groq
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY")
+)
+
+prompt = "Explique a lei federal 99.999/2040"
+
+# Faz a requisição
+response = client.chat.completions.create(
+    model="llama-3.1-8b-instant",
+    temperature =1.2,
+    messages=[
+        {
+            "role": "user",
+            "content": prompt
+        }
+    ]
+)
+
+# Exibe resposta
+print(response.choices[0].message.content)
+
+
+cria um .env
+ GROQ_API_KEY= g
+importo a key do env
+
