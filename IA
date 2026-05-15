@@ -535,28 +535,48 @@ https://www.mindmeister.com/app/map/2895446852?t=V0I55LdVN7
 CHAVE API GROQ =
 
 CODIGO VS :
+# Importa a biblioteca Groq para usar a IA
 from groq import Groq
+
+# Importa a função que carrega variáveis do arquivo .env
 from dotenv import load_dotenv
+
+# Biblioteca usada para acessar variáveis do sistema
 import os
 
+
+# Carrega o arquivo .env para pegar a chave da API
 load_dotenv()
 
+
+# Cria a conexão com a API da Groq
+# Aqui ele pega a chave GROQ_API_KEY do arquivo .env
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 
+# Texto/pergunta que será enviado para a IA
 prompt = "Explique o que é uma IA generativa"
 
+# Faz a requisição para a IA
 response = client.chat.completions.create(
+
+    # Modelo de IA que será utilizado
     model="llama-3.1-8b-instant",
+
+    # Lista de mensagens enviadas para a conversa
     messages=[
         {
+            # Define que quem está falando é o usuário
             "role": "user",
+
+            # Conteúdo da pergunta
             "content": prompt
         }
     ]
 )
 
+# Mostra na tela a resposta gerada pela IA
 print(response.choices[0].message.content)
 
 ARQUIVO .ENV
