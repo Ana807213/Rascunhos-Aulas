@@ -535,50 +535,62 @@ https://www.mindmeister.com/app/map/2895446852?t=V0I55LdVN7
 CHAVE API GROQ =
 
 CODIGO VS :
-# Importa a biblioteca Groq para usar a IA
+# Importa a biblioteca da Groq para usar IA
 from groq import Groq
 
-# Importa a função que carrega variáveis do arquivo .env
+# Importa a função que lê o arquivo .env
 from dotenv import load_dotenv
 
 # Biblioteca usada para acessar variáveis do sistema
 import os
 
 
-# Carrega o arquivo .env para pegar a chave da API
+# Carrega as variáveis do arquivo .env
+# Exemplo: GROQ_API_KEY=xxxxxxxx
 load_dotenv()
 
 
 # Cria a conexão com a API da Groq
-# Aqui ele pega a chave GROQ_API_KEY do arquivo .env
+# Aqui ele pega automaticamente a chave da API
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-# Texto/pergunta que será enviado para a IA
-prompt = "Explique o que é uma IA generativa"
 
-# Faz a requisição para a IA
+# Texto que será enviado para a IA
+# Esse texto funciona como uma pergunta/comando
+prompt = "Conte uma historia com o Gustavo Hungria"
+
+
+# Envia a mensagem para a IA
 response = client.chat.completions.create(
 
-    # Modelo de IA que será utilizado
+    # Modelo de IA utilizado
     model="llama-3.1-8b-instant",
 
-    # Lista de mensagens enviadas para a conversa
+    # Controla a criatividade da IA
+    # Quanto maior o valor, mais criativa e variada fica a resposta
+    temperature=1.2,
+
+    # Controla quais palavras a IA pode escolher
+    # 0.9 = IA considera várias possibilidades, mas ainda mantém coerência
+    top_p=0.9,
+
+    # Lista de mensagens da conversa
     messages=[
         {
-            # Define que quem está falando é o usuário
+            # Define quem enviou a mensagem
             "role": "user",
 
-            # Conteúdo da pergunta
+            # Conteúdo da mensagem
             "content": prompt
         }
     ]
 )
 
-# Mostra na tela a resposta gerada pela IA
-print(response.choices[0].message.content)
 
+# Mostra na tela a resposta criada pela IA
+print(response.choices[0].message.content)
 ARQUIVO .ENV
 GROQ_API_KEY = 
 
