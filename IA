@@ -531,5 +531,34 @@ a experiencia passada
 Trabalho para entrega dia 10/04
 https://www.mindmeister.com/app/map/2895446852?t=V0I55LdVN7
 
+15/05
+CHAVE API GROQ =
 
+CODIGO VS :
+from groq import Groq
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY")
+)
+
+prompt = "Explique o que é uma IA generativa"
+
+response = client.chat.completions.create(
+    model="llama-3.1-8b-instant",
+    messages=[
+        {
+            "role": "user",
+            "content": prompt
+        }
+    ]
+)
+
+print(response.choices[0].message.content)
+
+ARQUIVO .ENV
+GROQ_API_KEY = 
 
