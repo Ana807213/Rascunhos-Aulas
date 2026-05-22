@@ -326,3 +326,32 @@ class MainActivity : AppCompatActivity() {
 //colocar no mipmap
 
 //TELA DE CADASTRO;
+
+
+Exercicio Igor 
+
+
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/fundo_card"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@mipmap/subaru_rosa"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Subaru WRX STI 2002"/>
+
+    </LinearLayout>
