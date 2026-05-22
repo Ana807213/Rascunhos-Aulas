@@ -647,3 +647,49 @@ cria um .env
  GROQ_API_KEY= g
 importo a key do env
 
+21/05
+
+from agno.agent import Agent
+from agno.models.groq import Groq
+from agno.tools.tavily import TavilyTools
+from agno.tools.yfinance import YFinanceTools 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def usd_to_brl(dolar: float) -> float:
+
+    """
+    Converte um valor em dolar USD para Real Brasileiro(brl)
+
+    Args:
+        dolar(float): Valor em dolar.
+    Returns:
+        float: valor convertido em real Brasileiro 
+    """
+
+    return dolar / 5.20
+
+model = Groq(
+    id="llama-3.3-70b-versatile"
+)
+
+agent = Agent (
+    model=model,
+    tools=[TavilyTools(), YFinanceTools()],
+    instructions = """
+    use tabelas para mostrar a informação final. 
+    Nao inclua nenhum outro texto
+    Todo valor em USD (dolar), converta usando a ferramenta,
+    para BRL (R$).
+    """,
+    debug_mode=True
+)
+
+
+"""
+Stream faz com que o modelo va trazendo informação por partes
+"""
+
+prompt = "Qual a cotação atual da Apple agora?"
+agent.print_response(prompt, stream=True)
