@@ -60,3 +60,115 @@ public class Player : MonoBehaviour
         }
     }
 }
+
+
+28/08
+Codigo Player
+using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+        Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            float velocidadeX =
+                Mathf.Clamp(
+                    rb2d.linearVelocity.x + 0.9f,
+                    0,
+                    2
+                );
+
+            rb2d.linearVelocity = new Vector2(
+                velocidadeX,
+                rb2d.linearVelocity.y
+            );
+
+            transform.localScale = new Vector2(2, 2);
+            // aqui, é onde invertemos o sentido do boneco (direita, esquerda)
+            // utilizando somente o eixo X, modificando conforme o movimento
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            float velocidadeX =
+                Mathf.Clamp(
+                    rb2d.linearVelocity.x - 0.9f,
+                    -2,
+                    0
+                );
+
+            rb2d.linearVelocity = new Vector2(
+                velocidadeX,
+                rb2d.linearVelocity.y
+            );
+
+            transform.localScale = new Vector2(-2, 2);
+            // aqui, é onde invertemos o sentido do boneco (direita, esquerda)
+            // utilizando somente o eixo X, modificando conforme o movimento
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            rb2d.AddForce(new Vector2(0, 250));
+        }
+    }
+
+    private void LateUpdate()
+    {
+        Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
+        Animator animator = GetComponent<Animator>();
+
+        if (rigidbody2D.linearVelocity.x < 0 || rigidbody2D.linearVelocity.x > 0)
+        {
+            animator.Play("Andando");
+        }
+        else
+        {
+            animator.Play("Parado");
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D colisor)
+    {
+        if(colisor.gameObject.GetComponent<pedra>() != null)
+        {
+            Application.LoadLevel(Application.loadedLevelName);
+        }
+    }
+}
+
+Codigo Pedra
+using UnityEngine;
+
+public class pedra : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    
+        void OnCollisionEnter2D(Collision2D collision2D){
+            Destroy (gameObject);
+            }
+    }
+
+rigid body = poe fisica
+box colider = limite de colisão 
+prefab: cria um molde e replica varias vezes. tipo o tubo do mario (cria a pasta, cria um folder chamado prefeb e dentro de prefeb cria uma pasta chamada pedra e arrasta a pedra em cima disso)
+    
+
+
